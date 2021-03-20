@@ -19,13 +19,15 @@ while True:
   mnci = mci(list(rolls.values()))
   bnci = ds.binom_ci(list(rolls.values()))
 
-  utils.printResults(rolls,
+  utils.printResultsTable(rolls,
     sum=total_rolls,
     exp_rolls=ds.expected_rolls(total_rolls),
     freq=ds.freq(rolls.values()),
     exp_freq=ds.expected_frequency(),
     mnom_ci=mnci,
     bnom_ci=bnci)
+
+  ds.test_dice(rolls)
 
   print('')
   print('')

@@ -17,7 +17,7 @@ def inputNumber(message):
 
 
 
-def printResults(rolls, sum, exp_rolls, freq, exp_freq, mnom_ci, bnom_ci):
+def printResultsTable(rolls, sum, exp_rolls, freq, exp_freq, mnom_ci, bnom_ci):
 
   header_row = ["Eyes"]
   count_row = ["Count"]
@@ -48,7 +48,7 @@ def printResults(rolls, sum, exp_rolls, freq, exp_freq, mnom_ci, bnom_ci):
   upper_ci.extend(list(mnom_ci[:,1]))
   upper_ci.append("")
 
-  lower_bin_ci = ["95% bi.nom. CI"]
+  lower_bin_ci = ["95% binom. CI"]
   lower_bin_ci.extend(list(bnom_ci[:,0]))
   lower_bin_ci.append("")
 
