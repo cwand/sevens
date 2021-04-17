@@ -1,6 +1,6 @@
 import numpy as np
 from statsmodels.stats.proportion import proportion_confint as bci
-import met
+import mmct
 
 def sum(arr):
   tot = 0
@@ -42,10 +42,12 @@ def binom_ci(arr):
 
 def test_dice(rolls):
 
-  act_rolls = list(rolls.values())
-  exp_rolls = [1,2,3,4,5,6,5,4,3,2,1]
+  act_rolls = np.array(list(rolls.values()))
+  exp_freq = np.array([1/36,2/36,3/36,4/36,5/36,6/36,5/36,4/36,3/36,2/36,1/36])
 
-  t1 = met.Multinom(exp_rolls,act_rolls)
-  t1_p1 = t1.twosided_exact_test()
+  t = mmct.tester()
+  t.n_trials = 100000
+  p = t.do_test(act_rolls,exp_freq)
+
   print("H0: Counts = Expected counts")
-  print("Test: Exact two-sided multinomial test: p = %s" % t1_p1)
+  print("Test: Exact two-sided multinomial test: p = %s" % p)
