@@ -46,8 +46,8 @@ def test_dice(rolls):
   exp_freq = np.array([1/36,2/36,3/36,4/36,5/36,6/36,5/36,4/36,3/36,2/36,1/36])
 
   t = mmct.tester()
-  t.n_trials = 100000
+  t.n_trials = 10000
   p = t.do_test(act_rolls,exp_freq)
 
   print("H0: Counts = Expected counts")
-  print("Test: Exact two-sided multinomial test: p = %s" % p)
+  print("Test: Monte Carlo two-sided multinomial test: p = %s" % p)
